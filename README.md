@@ -36,15 +36,19 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 3. We splitted the dataset into two main categories: CPU and GPU. Since the GPU category/class has more feature than the CPU feature. 
 4. We look at seaborn pairplots and correlation coefficients to see the data distribution.
 
+
 ## Part 2. Data Preprocessing and Train First Model (Linear Regression and Polynomial Regression)
 1. We first clean the dataframe by deleting unused column 'Unnamed: 0' (only shows indecies of the dataframe).
 2. We normalize the dataset using Minmax Normalization.
 3. We encode the categorical column/features name 'Vendor' which will be used in other models later. 
 4. We build and train the Linear Regression model and Polynomial Regression model (up to degree 3).
-5. We report SSE/SSR which is the percentage of variation explain/reveal by the linear regression model. 
+5. We report R^2 which is the percentage of variation explain/reveal by the regression model. 
+6. We run a logistic regression on the categorical data, trying to explain which Vendor is tending to produce higher quality CPU/GPU.
 
 ## ToDos for more Data Preprocessing and more Model Training:
 1. We decided to apply missing value imputation (MissForest) to impute the missing values in the dataset. This is because the there are too many missing values in the dataset and removing them will result in having a dataset not large enough for training and testing the model.
 2. We decided to apply logistic regression to make prediction for 'Vendor' feature.
 3. We decided to split the final project into different objectives (e.g. one of the objectives is to predict whether a given trial/sample is a CPU or GPU using the 'Type' label as y for prediction results). This will require us to preprocess the dataset differently (i.e. scale and transform only the feature values X, but separate the predicting values y without using any scaling or transforming method to it). We will look more into the dataset and decide to use other models (logistic regression, neural network, decision tree, SVM).
+4. We are trying to do clusting and PCA on the data to discuss the impact of different variables and use them to reduce the model
+
 
