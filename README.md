@@ -112,9 +112,7 @@ We are then able to run the AgglomerativeClustering module of sklearn.cluster pa
 By the cluster method stated as above , we are able to obtain the four clusters from the Agglomerative Clustering as below:
 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/Tree.png)
-![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/agg-616x420.webp)
-![alt text]()
-![alt text]()
+
 ### 3.1.3 Interpretation:
 From the above Clusters we are able separate the CPU data into 3 subset:
 	1. Early developed CPU
@@ -156,6 +154,10 @@ $$\hat{\textbf{X}_{k}} = \textbf{X}-\sum_{s=1}^{k-1}\textbf{X}\textbf{w}_{\left(
 	Plot the principal components for better data visualization.  Though we had taken n_components =3, here we are plotting a 2d graph as well as 3d using first two principal components and 3 principal components respectively. For three principal components, we need to plot a 3d graph. The colors show the 2 output classes of the original dataset-benign and malignant. It is clear that principal components show clear separation between two output classes. 
  
 	For three principal components, we need to plot a 3d graph. x[:,0] signifies the first principal component. Similarly, x[:,1] and x[:,2] represent the second and the third principal component.
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca1.png)
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca2.png)
+### 3.1.3 Interpretation:
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca3.png)
 ## Result
 
 ## Discussion
