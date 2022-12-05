@@ -111,19 +111,24 @@ In the above dendrogram graph, such a vertical line is the blue line. We now dra
 We are then able to run the AgglomerativeClustering module of sklearn.cluster package to create flat clusters by passing no. of clusters as 4 (determined in the above section). Again we use euclidean and ward as the parameters.
 By the cluster method stated as above , we are able to obtain the four clusters from the Agglomerative Clustering as below:
 
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/Tree.png)
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/agg-616x420.webp)
+![alt text]()
+![alt text]()
 ### 3.1.3 Interpretation:
-From the above Clusters we are able separe the CPU data into 3 subset:
+From the above Clusters we are able separate the CPU data into 3 subset:
 	1. Early developed CPU
 	2. AMD High perfermance CPU
 	3. Advanced CPU
 By looking into this subset we found that:
 	The accelerating speed of business operations paired with constantly rising customer expectations means that for many organizations, decision making must be progressively devolved away from headquarters.
 	
-	In some cases, these decisions may need to be entirely automated.  Increasingly, decisions are being made based on data generated at the edge.  Putting compute capabilities closer to this relies on the effective combination of three technologies: edge computing, the cloud and artificial intelligence (AI).  While all three already add value individually, which mean in the foreseeable future, there will be a sharp rise in the demand of hashrate. Apparently those enterprises are in urgent need of cheap and high performance chip. But question is: will the Moore's Law still hold? What will be the limit of chip performance?
+	In some cases, these decisions may need to be entirely automated.  Increasingly, decisions are being made based on data generated at the edge.  Putting compute capabilities closer to this relies on the effective combination of three technologies: edge computing, the cloud and artificial intelligence (AI).  While all three already add value individually, which means in the foreseeable future, there will be a sharp rise in the demand of hashrate. Apparently those enterprises are in urgent need of cheap and high performance chips. But the question is: will Moore's Law still hold? What will be the limit of chip performance?
 	
-	The devlopment of chip manufacture technology has greatly decrease the Process Size of the chip, and bring revolutionary improvement on the CPU. But the process size is reaching the limit of Silicon's atomic size is about 0.2 nanometers. Although, the regression model we discuss before comes with the idea that this thing are not likely to happen in the comeing 30-40 years, after the process size reach to that limit, there would not be any breakthrough could happen on chip perferance. 
+	The development of chip manufacture technology has greatly decreased the Process Size of the chip, and brought revolutionary improvement on the CPU. But the process size is reaching the limit of Silicon's atomic size is about 0.2 nanometers. Although, the regression model we discussed before comes with the idea that this thing is not likely to happen in the coming 30-40 years, after the process size reaches that limit, there would not be any breakthrough on chip performance. 
 	
-So by this model, we can predicted in the next 5~8 years, the Moore's will Law still hold, but there will be gradually more and more difference between AMD and Intel chip manufacturing technique. We can also foresee when Samsung come up with their 3-nm manufacturing technique there will be a big improvement of CPU and GPU performance.  
+	So by this model, we can predict that in the next 5~8 years, the Moore's will Law still holds, but there will be gradually more and more differences between AMD and Intel chip manufacturing techniques. We can also foresee when Samsung comes up with their 3-nm manufacturing technique there will be a big improvement of CPU and GPU performance.
+
 
 
 ## 3.2 Principal component analysis (PCA)
@@ -133,6 +138,7 @@ PCA is an unsupervised pre-processing task that is carried out before applying a
 Similarly, the attribute which stands second in describing variance is called a second principal component and so on. In short, the complete dataset can be expressed in terms of principal components. Usually, more than 90% of the variance is explained by two/three principal components.
 
 Principal component analysis, or PCA, thus converts data from high dimensional space to low dimensional space by selecting the most important attributes that capture maximum information about the dataset.
+
 ### 3.2.1 Method
 
 Principal component analysis (PCA) is a popular technique for analyzing large datasets containing a high number of dimensions/features per observation, increasing the interpretability of data while preserving the maximum amount of information, and enabling the visualization of multidimensional data. Formally, PCA is a statistical technique for reducing the dimensionality of a dataset. This is accomplished by linearly transforming the data into a new coordinate system where (most of) the variation in the data can be described with fewer dimensions than the initial data.
@@ -145,8 +151,11 @@ The k-th component can be found by subtracting the first k − 1 principal compo
 $$\hat{\textbf{X}_{k}} = \textbf{X}-\sum_{s=1}^{k-1}\textbf{X}\textbf{w}_{\left( s \right)}\textbf{w}^{^{\textbf{T}}}_{\left( s \right)}$$
 
 ###3.2.2 Application
-
-
+	It is clear that the dataset has 1543  data items with 4 input attributes. There are Three output classes-benign and malignant. Due to 4 input features, it is impossible to visualize this data. while the dimension of actual data is (1543,4). Thus, it is clear that with PCA, the number of dimensions has reduced to 3 from 4.
+ 
+	Plot the principal components for better data visualization.  Though we had taken n_components =3, here we are plotting a 2d graph as well as 3d using first two principal components and 3 principal components respectively. For three principal components, we need to plot a 3d graph. The colors show the 2 output classes of the original dataset-benign and malignant. It is clear that principal components show clear separation between two output classes. 
+ 
+	For three principal components, we need to plot a 3d graph. x[:,0] signifies the first principal component. Similarly, x[:,1] and x[:,2] represent the second and the third principal component.
 ## Result
 
 ## Discussion
