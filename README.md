@@ -60,7 +60,6 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 # 3.Clustering
 
 ## 3.1Agglomerative Hierarchical Clustering
-### 3.1.1 General introduction to Hierarchical Clustering
 Hierarchical clustering is an unsupervised clustering algorithm used to create clusters with a tree-like hierarchy. In this clustering method, there is no need to give the number of clusters to the algorithm.  In contrast to this, the other algorithm like K-Mean produces flat clusters where there is no hierarchy and we also have to choose the number of clusters, to begin with.
 
 Here, we first draw a Hierarchical Dendrogram to have a general overview of the CPU data to decide the number of clusters we need for the K-Mean clustering algorithm.
@@ -71,7 +70,7 @@ Agglomerative Clustering – It takes a bottom-up approach where it assumes indi
 
 
 
-### 3.1.2 Method
+### 3.1.1 Method
 Parameters of Agglomerative Clustering
 The agglomeration hierarchical clustering can have multiple variations depending on affinity and linkage.
 Affinity
@@ -104,7 +103,7 @@ Average-compromise between the sensitivity of complete-link clustering to outlie
 Wards-increase in the "error sum of squares" (ESS) after fusing two clusters into a single cluster
 Error Sum of Squares: $$ESS=\sum_{i}^{}\sum_{j}^{}\sum_{k}^{}|x_{ijk}-\bar{x}_{i\cdot k}|^{2}$$
 
-### 3.1.3 Application
+### 3.1.2 Application
 In this case we are interested in the development trend of chip’s  Process Size, Die Size, Transistors and Freq. So we use these four variables as our input, we generate a Hierarchical Dendrogram which is show below:
 
 In the above dendrogram graph, such a vertical line is the blue line. We now draw a horizontal line across this vertical line as shown below. This horizontal line cuts the vertical line at two places, and this means the optimal number of clusters is 4.
@@ -112,16 +111,40 @@ In the above dendrogram graph, such a vertical line is the blue line. We now dra
 We are then able to run the AgglomerativeClustering module of sklearn.cluster package to create flat clusters by passing no. of clusters as 4 (determined in the above section). Again we use euclidean and ward as the parameters.
 By the cluster method stated as above , we are able to obtain the four clusters from the Agglomerative Clustering as below:
 
-### 3.1.4 Interpretation:
-From the above Clusters we are able to identify few thing:
-	1.
+### 3.1.3 Interpretation:
+From the above Clusters we are able separe the CPU data into 3 subset:
+	1. Early developed CPU
+	2. AMD High perfermance CPU
+	3. Advanced CPU
+By looking into this subset we found that:
+	The accelerating speed of business operations paired with constantly rising customer expectations means that for many organizations, decision making must be progressively devolved away from headquarters.
+	
+	In some cases, these decisions may need to be entirely automated.  Increasingly, decisions are being made based on data generated at the edge.  Putting compute capabilities closer to this relies on the effective combination of three technologies: edge computing, the cloud and artificial intelligence (AI).  While all three already add value individually, which mean in the foreseeable future, there will be a sharp rise in the demand of hashrate. Apparently those enterprises are in urgent need of cheap and high performance chip. But question is: will the Moore's Law still hold? What will be the limit of chip performance?
+	
+	The devlopment of chip manufacture technology has greatly decrease the Process Size of the chip, and bring revolutionary improvement on the CPU. But the process size is reaching the limit of Silicon's atomic size is about 0.2 nanometers. Although, the regression model we discuss before comes with the idea that this thing are not likely to happen in the comeing 30-40 years, after the process size reach to that limit, there would not be any breakthrough could happen on chip perferance. 
+	
+So by this model, we can predicted in the next 5~8 years, the Moore's will Law still hold, but there will be gradually more and more difference between AMD and Intel chip manufacturing technique. We can also foresee when Samsung come up with their 3-nm manufacturing technique there will be a big improvement of CPU and GPU performance.  
 
 
 ## 3.2 Principal component analysis (PCA)
 
+PCA is an unsupervised pre-processing task that is carried out before applying any ML algorithm. PCA is based on “orthogonal linear transformation” which is a mathematical technique to project the attributes of a data set onto a new coordinate system. The attribute which describes the most variance is called the first principal component and is placed at the first coordinate.
+
+Similarly, the attribute which stands second in describing variance is called a second principal component and so on. In short, the complete dataset can be expressed in terms of principal components. Usually, more than 90% of the variance is explained by two/three principal components.
+
+Principal component analysis, or PCA, thus converts data from high dimensional space to low dimensional space by selecting the most important attributes that capture maximum information about the dataset.
+### 3.2.1 Method
+
 Principal component analysis (PCA) is a popular technique for analyzing large datasets containing a high number of dimensions/features per observation, increasing the interpretability of data while preserving the maximum amount of information, and enabling the visualization of multidimensional data. Formally, PCA is a statistical technique for reducing the dimensionality of a dataset. This is accomplished by linearly transforming the data into a new coordinate system where (most of) the variation in the data can be described with fewer dimensions than the initial data.
 
 The principal components of a collection of points in a real coordinate space are a sequence of p unit vectors, where the i-th vector is the direction of a line that best fits the data while being orthogonal to the first i-1 vectors. Here, a best-fitting line is defined as one that minimizes the average squared perpendicular distance from the points to the line. These directions constitute an orthonormal basis in which different individual dimensions of the data are linearly uncorrelated. Principal component analysis (PCA) is the process of computing the principal components and using them to perform a change of basis on the data
+
+$$ w_{(1)} =\arg\max_{\Vert w \Vert = 1} \,\left\{\sum_i(t_1)^2_{(i)}\right\}= \arg\max_{\Vert w \Vert = 1} \,\left\{ \sum_i \left(x_{(i)} \cdot w \right)^2 \right\}$$
+
+The k-th component can be found by subtracting the first k − 1 principal components from X:
+$$\hat{\textbf{X}_{k}} = \textbf{X}-\sum_{s=1}^{k-1}\textbf{X}\textbf{w}_{\left( s \right)}\textbf{w}^{^{\textbf{T}}}_{\left( s \right)}$$
+
+###3.2.2 Application
 
 
 ## Result
