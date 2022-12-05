@@ -57,9 +57,10 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 3. We build a 3-layer ANN model with activation relu and signmoid, train for 1000 epoch.
 4. The model reaches 0.85 accuracy at the end.
 
-##Clustering
-#3.1Agglomerative Hierarchical Clustering
-3.1.1 General introduction to Hierarchical Clustering
+# 3.Clustering
+
+## 3.1Agglomerative Hierarchical Clustering
+### 3.1.1 General introduction to Hierarchical Clustering
 Hierarchical clustering is an unsupervised clustering algorithm used to create clusters with a tree-like hierarchy. In this clustering method, there is no need to give the number of clusters to the algorithm.  In contrast to this, the other algorithm like K-Mean produces flat clusters where there is no hierarchy and we also have to choose the number of clusters, to begin with.
 
 Here, we first draw a Hierarchical Dendrogram to have a general overview of the CPU data to decide the number of clusters we need for the K-Mean clustering algorithm.
@@ -70,7 +71,7 @@ Agglomerative Clustering – It takes a bottom-up approach where it assumes indi
 
 
 
-3.1.2 Method
+### 3.1.2 Method
 Parameters of Agglomerative Clustering
 The agglomeration hierarchical clustering can have multiple variations depending on affinity and linkage.
 Affinity
@@ -97,7 +98,7 @@ Average-compromise between the sensitivity of complete-link clustering to outlie
 Wards-increase in the "error sum of squares" (ESS) after fusing two clusters into a single cluster
 Error Sum of Squares: $$ESS=\sum_{i}^{}\sum_{j}^{}\sum_{k}^{}|x_{ijk}-\bar{x}_{i\cdot k}|^{2}$$
 
-3.1.3 Application
+### 3.1.3 Application
 In this case we are interested in the development trend of chip’s  Process Size, Die Size, Transistors and Freq. So we use these four variables as our input, we generate a Hierarchical Dendrogram which is show below:
 
 In the above dendrogram graph, such a vertical line is the blue line. We now draw a horizontal line across this vertical line as shown below. This horizontal line cuts the vertical line at two places, and this means the optimal number of clusters is 4.
@@ -105,7 +106,7 @@ In the above dendrogram graph, such a vertical line is the blue line. We now dra
 We are then able to run the AgglomerativeClustering module of sklearn.cluster package to create flat clusters by passing no. of clusters as 4 (determined in the above section). Again we use euclidean and ward as the parameters.
 By the cluster method stated as above , we are able to obtain the four clusters from the Agglomerative Clustering as below:
 
-3.1.4 Interpretation:
+### 3.1.4 Interpretation:
 From the above Clusters we are able to identify few thing:
 	1.
 
