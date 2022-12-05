@@ -77,6 +77,13 @@ The agglomeration hierarchical clustering can have multiple variations depending
 Affinity
 Affinity denotes the method using which the distance or similarity between data points or clusters is calculated. Which include –
 
+K-nearest neighbor (KNN) 
+K-nearest neighbor (KNN) is a non-parametric classifier. The prediction of the label of a test point is assigned according to the vote of its K nearest neighbors’ labels, where K is a user-defined parameter. KNN is a simple technique, and could work well when given a good distance metric and sufficient training dataset. It can be shown that the KNN classifier can come within a factor of 2 of the best possible performance if N → ∞ . For a test point x, the probability that its class label y=c is defined as
+$$p\left( y=c|x,D,K \right)=\frac{1}{K}\sum_{_{i\in }N_{k}\left( x,D \right)}^{}\left( y_{i} \right) = c_{i}$$
+
+Where $$N_{k}\left( x,D \right)$$ are the K nearest neighbors of the test point. The estimate class label would then be defined as $$\hat{y}\left( x \right)=argmax_{c}p(y=c|x,D,K)$$
+
+
 Euclidean-straight line distance between 2 data points in a plane:
 Manhattan-distance between two strings, a and b is denoted as d(a,b).
 Cosine-Cos θ distance between the two data points
