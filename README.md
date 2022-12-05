@@ -78,8 +78,7 @@ Affinity
 Affinity denotes the method using which the distance or similarity between data points or clusters is calculated. Which include –
 
 K-nearest neighbor (KNN) 
-K-nearest neighbor (KNN) is a non-parametric classifier. The prediction of the label of a test point is assigned according to the vote of its K nearest neighbors’ labels, where K is a user-defined parameter. KNN is a simple technique, and could work well when given a good distance metric and sufficient training dataset. It can be shown that the KNN classifier can come within a factor of 2 of the best possible performance if N → ∞ . For a test point x, the probability that its class label y=c is defined as
-$$p\left( y=c|x,D,K \right)=\frac{1}{K}\sum_{_{i\in }N_{k}\left( x,D \right)}^{}\left( y_{i} \right) = c_{i}$$
+K-nearest neighbor (KNN) is a non-parametric classifier. The prediction of the label of a test point is assigned according to the vote of its K nearest neighbors’ labels, where K is a user-defined parameter. KNN is a simple technique, and could work well when given a good distance metric and sufficient training dataset. It can be shown that the KNN classifier can come within a factor of 2 of the best possible performance if N → ∞ . For a test point x, the probability that its class label y=c is defined as $$p\left(y=c|x,D,K\right)=\frac{1}{K}\sum_{_{i\in}N_{k}\left(x,D\right)}^{}\left(y_{i}\right)=c_{i}$$
 
 Where $$N_{k}\left( x,D \right)$$ are the K nearest neighbors of the test point. The estimate class label would then be defined as $$\hat{y}\left( x \right)=argmax_{c}p(y=c|x,D,K)$$
 
@@ -116,6 +115,13 @@ By the cluster method stated as above , we are able to obtain the four clusters 
 ### 3.1.4 Interpretation:
 From the above Clusters we are able to identify few thing:
 	1.
+
+
+## 3.2 Principal component analysis (PCA)
+
+Principal component analysis (PCA) is a popular technique for analyzing large datasets containing a high number of dimensions/features per observation, increasing the interpretability of data while preserving the maximum amount of information, and enabling the visualization of multidimensional data. Formally, PCA is a statistical technique for reducing the dimensionality of a dataset. This is accomplished by linearly transforming the data into a new coordinate system where (most of) the variation in the data can be described with fewer dimensions than the initial data.
+
+The principal components of a collection of points in a real coordinate space are a sequence of p unit vectors, where the i-th vector is the direction of a line that best fits the data while being orthogonal to the first i-1 vectors. Here, a best-fitting line is defined as one that minimizes the average squared perpendicular distance from the points to the line. These directions constitute an orthonormal basis in which different individual dimensions of the data are linearly uncorrelated. Principal component analysis (PCA) is the process of computing the principal components and using them to perform a change of basis on the data
 
 
 ## Result
