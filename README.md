@@ -230,3 +230,6 @@ moore's law indecated: "number of transistors doubles every year". However, rece
 
 ## Contribution
 Tingwei Liu: Preprocessing data, build correlation chart on dataset, Normalize data, build and explain ANN models.
+Yuchen Liu : Data transformation & formating， build and explain Clustering & PCA models.
+
+
