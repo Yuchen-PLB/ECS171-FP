@@ -51,9 +51,51 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 6. We run a logistic regression on the categorical data, trying to explain which Vendor is tending to produce higher quality CPU/GPU.
 
 
-### 2. Vendor Prediction with ANN Model
- This model predict the brand of CPU/GPU with expect to its 'Release Date	Process Size (nm)	TDP (W)	Die Size (mm^2)	Transistors (million)	Freq (MHz)'. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X. We build a 3-layer ANN model with activation relu and signmoid, train for 1000 epoch. The activation function is chosen based on the previous observation of the logistic regression, which shows clear linear relationship for the previous 5 years from 2000 and more polinomial shape for the recent years. We tried categorical NN and sequential NN to explore the relationship between chip performances and the Vendor.
- The model reaches 0.85 accuracy at the end.
+# 2. Vendor Prediction with ANN Model
+ This model predict the brand of CPU/GPU with expect to its 'Release Date Process Size (nm) TDP (W) Die Size (mm^2)	Transistors (million)	Freq (MHz)'. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X. 
+ ### 2.1 Method
+ We build a 3-layer ANN model with activation relu and signmoid, train for 1000 epoch. The activation function is chosen based on the previous observation of the logistic regression, which shows clear linear relationship for the previous 5 years from 2000 and more polinomial shape for the recent years.
+ We tried categorical NN and sequential NN to explore the relationship between chip performances and the Vendor. At the end, we also build the comfusion matrix to try to evaluate the performance of our model. The code works like below: 
+```
+from sklearn.naive_bayes import CategoricalNB
+model = CategoricalNB()
+model.fit(X_train, y_train)
+yhat_test = model.predict(X_test)
+```
+Here, X_train is size, tdp, die size,transistors and y_train is the enumerated vendor (for CPU is 0,1 since there is only AMD and Intel; whereas for GPUs are 0,1,2,3 since there are four known Venders in the data).
+
+After building the model, we create confusion matrix with respect to the prediction:
+```
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+yhat_test = model.predict(X_test)
+myconfusionmatrix = confusion_matrix(y_test, yhat_test)
+display(myconfusionmatrix)
+mycmdisp = ConfusionMatrixDisplay(confusion_matrix=myconfusionmatrix, display_labels=model.classes_)
+mycmdisp.plot()
+```
+The sequential NN takes the time as a sequential argument, which helps to identify the performance of chips of different brands within 20 years. 
+```
+import tensorflow
+from keras.models import Sequential
+from keras.layers import Dense
+
+model = Sequential()
+
+model.add(Dense(units =6, activation = 'relu', input_dim = 6))
+model.add(Dense(units = 6, activation = 'relu'))
+model.add(Dense(units = 1, activation = 'sigmoid'))
+
+model.compile(loss='binary_crossentropy',optimizer='sgd',metrics=['accuracy'])
+model.fit(X_train, y_train, batch_size = 1, epochs = 1000)
+```
+
+### 2.2 Conclusion
+CPU and GPU shows different performance after training. For the categorical model, the CPU shows 0 wrong prediction on Vendor 1 and 137 wrong prediction on Vendor 0. 
+
+Note that there model reaches around 0.85 accuracy after 700 epochs and starts overtrained.
+
+
+
 
 # 3.Clustering
 
