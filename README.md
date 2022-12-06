@@ -143,10 +143,11 @@ Principal component analysis (PCA) is a popular technique for analyzing large da
 
 The principal components of a collection of points in a real coordinate space are a sequence of p unit vectors, where the i-th vector is the direction of a line that best fits the data while being orthogonal to the first i-1 vectors. Here, a best-fitting line is defined as one that minimizes the average squared perpendicular distance from the points to the line. These directions constitute an orthonormal basis in which different individual dimensions of the data are linearly uncorrelated. Principal component analysis (PCA) is the process of computing the principal components and using them to perform a change of basis on the data
 
-$$ w_{(1)} =\arg\max_{\Vert w \Vert = 1} \,\left\{\sum_i(t_1)^2_{(i)}\right\}= \arg\max_{\Vert w \Vert = 1} \,\left\{ \sum_i \left(x_{(i)} \cdot w \right)^2 \right\}$$
+![alt text]('https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/lagrida_latex_editor.png')
 
 The k-th component can be found by subtracting the first k − 1 principal components from X:
-$$\hat{\textbf{X}_{k}} = \textbf{X}-\sum_{s=1}^{k-1}\textbf{X}\textbf{w}_{\left( s \right)}\textbf{w}^{^{\textbf{T}}}_{\left( s \right)}$$
+
+![alt text]('https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/lagrida_latex_editor%20(1).png')
 
 ###3.2.2 Application
 	It is clear that the dataset has 1543  data items with 4 input attributes. There are Three output classes-benign and malignant. Due to 4 input features, it is impossible to visualize this data. while the dimension of actual data is (1543,4). Thus, it is clear that with PCA, the number of dimensions has reduced to 3 from 4.
@@ -158,6 +159,13 @@ $$\hat{\textbf{X}_{k}} = \textbf{X}-\sum_{s=1}^{k-1}\textbf{X}\textbf{w}_{\left(
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca2.png)
 ### 3.1.3 Interpretation:
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca3.png)
+
+From the graph above, we found that the two variables that are most related to the chip performance are Process Size and Freq, which means most other factors are corresponding with the chip’s process size and chip frequency, the advancement in the chip process size and frequency lead to the development of chip performance. 
+
+By the PCA, we also discover that the factor  Process Size and Freq are not perfectly perpendicular to each other, which means that the development in  Process Size is not always corresponding with the Freq. Actually the angle between them is slightly over 90^{。}That is because as we decrease the Process Size, the processor actually becomes more fragile under high voltage, which restricts the optimized Freq for the chip.
+
+From this perspective, the future trend of chip development in the next 5-7 years will still be the competition of more advanced processor manufacturing techniques and higher frequency. The limit of chip performance will not be reached until they reach the bottleneck of manufacturing technique and chip frequency.
+	
 ## Result
 
 ## Discussion
