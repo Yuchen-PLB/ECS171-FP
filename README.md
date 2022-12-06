@@ -31,6 +31,12 @@ In this dataset, the Type could be considered as a label/category for other feat
 4. Choose appropriate machine learning models and train the model (linear regression, polynomial regression, neural network, logistic regression, …).
 5. Construct clear write-ups (include goals, results, and discussion) to report our findings. 
 
+## ToDos for more Data Preprocessing and more Model Training:
+1. We decided to apply missing value imputation (MissForest) to impute the missing values in the dataset. This is because the there are too many missing values in the dataset and removing them will result in having a dataset not large enough for training and testing the model.
+2. We decided to apply logistic regression to make prediction for 'Vendor' feature.
+3. We decided to split the final project into different objectives (e.g. one of the objectives is to predict whether a given trial/sample is a CPU or GPU using the 'Type' label as y for prediction results). This will require us to preprocess the dataset differently (i.e. scale and transform only the feature values X, but separate the predicting values y without using any scaling or transforming method to it). We will look more into the dataset and decide to use other models (logistic regression, neural network, decision tree, SVM).
+4. We are trying to do clusting and PCA on the data to discuss the impact of different variables and use them to reduce the model
+
 ## Figures and Data exploration
 
 ### Part 1. Data exploration
@@ -42,7 +48,7 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 
 ## Methods
 
-### 1. Data Preprocessing and Train First Model (Linear Regression and Polynomial Regression)
+### Part 3.1 Data Preprocessing and Train First Model (Linear Regression and Polynomial Regression)
 1. We first clean the dataframe by deleting unused column 'Unnamed: 0' (only shows indecies of the dataframe).
 2. We normalize the dataset using Minmax Normalization.
 3. We encode the categorical column/features name 'Vendor' which will be used in other models later. 
@@ -51,11 +57,11 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 6. We run a logistic regression on the categorical data, trying to explain which Vendor is tending to produce higher quality CPU/GPU.
 
 
-# 2. Vendor Prediction with ANN Model
- This model predict the brand of CPU/GPU with expect to its 'Release Date Process Size (nm) TDP (W) Die Size (mm^2)	Transistors (million)	Freq (MHz)'. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X. 
- ### 2.1 Method
- We build a 3-layer ANN model with activation relu and signmoid, train for 1000 epoch. The activation function is chosen based on the previous observation of the logistic regression, which shows clear linear relationship for the previous 5 years from 2000 and more polinomial shape for the recent years.
- We tried categorical NN and sequential NN to explore the relationship between chip performances and the Vendor. At the end, we also build the comfusion matrix to try to evaluate the performance of our model. The code works like below: 
+### Part 3.2 Vendor Prediction with ANN Model
+This model predict the brand of CPU/GPU with expect to its 'Release Date Process Size (nm) TDP (W) Die Size (mm^2)	Transistors (million)	Freq (MHz)'. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X. 
+#### 3.2.1 Method
+We build a 3-layer ANN model with activation relu and signmoid, train for 1000 epoch. The activation function is chosen based on the previous observation of the logistic regression, which shows clear linear relationship for the previous 5 years from 2000 and more polinomial shape for the recent years.
+We tried categorical NN and sequential NN to explore the relationship between chip performances and the Vendor. At the end, we also build the comfusion matrix to try to evaluate the performance of our model. The code works like below: 
 ```
 from sklearn.naive_bayes import CategoricalNB
 model = CategoricalNB()
@@ -89,20 +95,20 @@ model.compile(loss='binary_crossentropy',optimizer='sgd',metrics=['accuracy'])
 model.fit(X_train, y_train, batch_size = 1, epochs = 1000)
 ```
 
-### 2.2 Result
+#### 3.2.2 Result
 CPU and GPU shows different performance after training. For the categorical model, the CPU shows 0 wrong prediction on Vendor 1 and 137 wrong prediction on Vendor 0.  
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/742fbc78b9a3cb70b58c889ed044b442ea67a1b4/pictures/ANNconfusion_matrix_CPU.png)
 
 For the sequential model, it reaches around 0.85 accuracy after 700 epochs and starts overtrained. However, with respect to the GPU sequential model, the model didn't provide accurate prediction.
 
-### 2.3 Discussion and Application
+#### 3.2.3 Discussion and Application
 Based on the four model built above(sequential CPU, sequential GPU, categorical CPU and categorical GPU), the sequential CPU model provides best performance. It shows 0.85 accuracy, which proves our assumption that the perfomance of the chips grows more faster in the recent years for both vendors. This model can also further predict the performance of the chips in future for different venders. 
 The categorical CPU model, however, didn't shows good performance on predict different venders. This might happen because when ignoring the release date veriable, one vender might produce a similar chip after another vender produce it few years later. Further exploration is needed to find out the reason why it is harder to predict the vendors.
 The sequential model for GPU does not shows only 10% accuracy. This might happen because there are more venders involved in the GPU industries, which increase the complexity of the model, 100 epouch is not enough. There also need further exploration to figure out the relationship between different GPU venders to the development of GPUS.
 
-# 3.Clustering
+### Part 3.3 Clustering
 
-## 3.1Agglomerative Hierarchical Clustering
+#### 3.3.1 Method 1: Agglomerative Hierarchical Clustering
 Hierarchical clustering is an unsupervised clustering algorithm used to create clusters with a tree-like hierarchy. In this clustering method, there is no need to give the number of clusters to the algorithm.  In contrast to this, the other algorithm like K-Mean produces flat clusters where there is no hierarchy and we also have to choose the number of clusters, to begin with.
 
 Here, we first draw a Hierarchical Dendrogram to have a general overview of the CPU data to decide the number of clusters we need for the K-Mean clustering algorithm.
@@ -111,9 +117,7 @@ The hierarchical clustering algorithm can be of two types –
 Divisive Clustering – It takes a top-down approach where the entire data observation is considered to be one big cluster at the start. Then subsequently it is split into two clusters, then three clusters, and so on until each data ends up as a separate cluster.
 Agglomerative Clustering – It takes a bottom-up approach where it assumes individual data observation to be one cluster at the start. Then it starts merging the data points into clusters till it creates one final cluster at the end with all data points.
 
-
-
-### 3.1.1 Method
+#### 3.3.1.1 Method
 Parameters of Agglomerative Clustering
 The agglomeration hierarchical clustering can have multiple variations depending on affinity and linkage.
 Affinity
@@ -146,7 +150,7 @@ Average-compromise between the sensitivity of complete-link clustering to outlie
 Wards-increase in the "error sum of squares" (ESS) after fusing two clusters into a single cluster
 Error Sum of Squares: $$ESS=\sum_{i}^{}\sum_{j}^{}\sum_{k}^{}|x_{ijk}-\bar{x}_{i\cdot k}|^{2}$$
 
-### 3.1.2 Application
+#### 3.3.1.2 Application
 
 In this case we are interested in the development trend of chip’s  Process Size, Die Size, Transistors and Freq. So we use these four variables as our input, we generate a Hierarchical Dendrogram which is show below:
 
@@ -157,7 +161,7 @@ By the cluster method stated as above , we are able to obtain the four clusters 
 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/Tree.png)
 
-### 3.1.3 Interpretation:
+#### 3.3.1.3 Interpretation
 
 From the above Clusters we are able separate the CPU data into 3 subset:
 	1. Early developed CPU
@@ -171,7 +175,7 @@ By looking into this subset we found that:
 
 
 
-## 3.2 Principal component analysis (PCA)
+#### 3.3.2 Method 2: Principal component analysis (PCA)
 
 PCA is an unsupervised pre-processing task that is carried out before applying any ML algorithm. PCA is based on “orthogonal linear transformation” which is a mathematical technique to project the attributes of a data set onto a new coordinate system. The attribute which describes the most variance is called the first principal component and is placed at the first coordinate.
 
@@ -179,7 +183,7 @@ Similarly, the attribute which stands second in describing variance is called a 
 
 Principal component analysis, or PCA, thus converts data from high dimensional space to low dimensional space by selecting the most important attributes that capture maximum information about the dataset.
 
-### 3.2.1 Method
+#### 3.3.2.1 Method
 
 Principal component analysis (PCA) is a popular technique for analyzing large datasets containing a high number of dimensions/features per observation, increasing the interpretability of data while preserving the maximum amount of information, and enabling the visualization of multidimensional data. Formally, PCA is a statistical technique for reducing the dimensionality of a dataset. This is accomplished by linearly transforming the data into a new coordinate system where (most of) the variation in the data can be described with fewer dimensions than the initial data.
 
@@ -191,7 +195,7 @@ The k-th component can be found by subtracting the first k − 1 principal compo
 
 ![689b2449539019c66c0dbfa4e31d4e9](https://user-images.githubusercontent.com/118629117/205845328-0f55a50f-056a-481d-82db-1f46029051d9.png)
 
-### 3.2.2 Application
+#### 3.3.2.2 Application
 
 	It is clear that the dataset has 1543  data items with 4 input attributes. There are Three output classes-benign and malignant. Due to 4 input features, it is impossible to visualize this data. while the dimension of actual data is (1543,4). Thus, it is clear that with PCA, the number of dimensions has reduced to 3 from 4.
  
@@ -203,7 +207,7 @@ The k-th component can be found by subtracting the first k − 1 principal compo
 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca2.png)
 
-### 3.1.3 Interpretation:
+#### 3.3.2.3 Interpretation:
 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca3.png)
 
@@ -231,14 +235,7 @@ In our project, we perform Multiple Linear Regression (MLR) and polynomial regre
 
 	We also applied Clustering and PCA on both CPU & GPU. By the model,we believe the future trend of chip development in the next 5-7 years will still be the competition of more advanced processor manufacturing techniques and higher frequency. The limit of chip performance will not be reached until they reach the bottleneck of manufacturing technique and chip frequency.
 
-	
-## ToDos for more Data Preprocessing and more Model Training:
-1. We decided to apply missing value imputation (MissForest) to impute the missing values in the dataset. This is because the there are too many missing values in the dataset and removing them will result in having a dataset not large enough for training and testing the model.
-2. We decided to apply logistic regression to make prediction for 'Vendor' feature.
-3. We decided to split the final project into different objectives (e.g. one of the objectives is to predict whether a given trial/sample is a CPU or GPU using the 'Type' label as y for prediction results). This will require us to preprocess the dataset differently (i.e. scale and transform only the feature values X, but separate the predicting values y without using any scaling or transforming method to it). We will look more into the dataset and decide to use other models (logistic regression, neural network, decision tree, SVM).
-4. We are trying to do clusting and PCA on the data to discuss the impact of different variables and use them to reduce the model
-
-##Reference:
+## Reference:
 [1]kmeans clustering algorithm - Python. (n.d.). https://pythonprogramminglanguage.com/kmeans-clustering-algorithm/
 
 [2]Kumar, B. (2021, October 21). *Pandas Delete Column. Python Guides*. https://pythonguides.com/pandas-delete-column/
@@ -258,8 +255,11 @@ In our project, we perform Multiple Linear Regression (MLR) and polynomial regre
 Especially thanks for Dr.Sebastian Kühnert in STA 141 provide additional explanation on PCA (in R)
 
 ## Contribution
-Tingwei Liu: Preprocessing data, build correlation chart on dataset, Normalize data, build and explain ANN models.
 
-Yuchen Liu : Data transformation & formating， build and explain Clustering & PCA models.
+Tingwei Liu: Write code for data preprocessing, build correlation chart on dataset, write code for data normalization, build and explain ANN models, introduce the group members to each other.
+
+Yuchen Liu : Write code for data transformation and data formating, build and explain Clustering models, build and explain PCA models, reserve meeting rooms for the group.
+
+Keer (Nicole) Ni: Organize the Github folders and files, delte repeative codes, separate data preprocessing and model training codes, tidy the Readme section on Github, debug and correct the data transformation for 'Release Date' label, organize the code files to subsections for readability, build and explain Regression (Linear, Polynomial, Logistic) models.
 
 
