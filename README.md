@@ -52,10 +52,8 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 
 
 ### 2. Vendor Prediction with ANN Model
-1. This model predict the brand of CPU/GPU with expect to its 'Release Date	Process Size (nm)	TDP (W)	Die Size (mm^2)	Transistors (million)	Freq (MHz)'.
-2. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X.
-3. We build a 3-layer ANN model with activation relu and signmoid, train for 1000 epoch.
-4. The model reaches 0.85 accuracy at the end.
+ This model predict the brand of CPU/GPU with expect to its 'Release Date	Process Size (nm)	TDP (W)	Die Size (mm^2)	Transistors (million)	Freq (MHz)'. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X. We build a 3-layer ANN model with activation relu and signmoid, train for 1000 epoch. The activation function is chosen based on the previous observation of the logistic regression, which shows clear linear relationship for the previous 5 years from 2000 and more polinomial shape for the recent years. We tried categorical NN and sequential NN to explore the relationship between chip performances and the Vendor.
+ The model reaches 0.85 accuracy at the end.
 
 # 3.Clustering
 
