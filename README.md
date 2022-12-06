@@ -228,6 +228,25 @@ moore's law indecated: "number of transistors doubles every year". However, rece
 3. We decided to split the final project into different objectives (e.g. one of the objectives is to predict whether a given trial/sample is a CPU or GPU using the 'Type' label as y for prediction results). This will require us to preprocess the dataset differently (i.e. scale and transform only the feature values X, but separate the predicting values y without using any scaling or transforming method to it). We will look more into the dataset and decide to use other models (logistic regression, neural network, decision tree, SVM).
 4. We are trying to do clusting and PCA on the data to discuss the impact of different variables and use them to reduce the model
 
+##Reference:
+[1]kmeans clustering algorithm - Python. (n.d.). https://pythonprogramminglanguage.com/kmeans-clustering-algorithm/
+
+[2]Kumar, B. (2021, October 21). *Pandas Delete Column. Python Guides*. https://pythonguides.com/pandas-delete-column/
+
+[3]Taskesen, E. (2022, September 27). A practical guide for getting the most out of Principal Component Analysis. | *Towards Data Science.* Medium. https://towardsdatascience.com/what-are-pca-loadings-and-biplots-9a7897f2e559
+
+[4]pca. (2022, November 1). PyPI. https://pypi.org/project/pca/
+
+[5]Real Python. (2022, September 1).* K-Means Clustering in Python: A Practical Guide*. https://realpython.com/k-means-clustering-python/
+
+[6]*How to Do Hierarchical Clustering in Python ? 5 Easy Steps Only.* (2021, April 11). Data Science Learner. https://www.datasciencelearner.com/how-to-do-hierarchical-clustering-in-python/
+
+[7]Extracting specific rows from a data frame. (2017, August 7). Stack Overflow. https://stackoverflow.com/questions/45552952/extracting-specific-rows-from-a-data-frame
+
+[8]Comparing Kmeans and Agglomerative Clustering. (2022, May 17). Stack Overflow. https://stackoverflow.com/questions/72272929/comparing-kmeans-and-agglomerative-clustering
+
+Especially thanks for Dr.Sebastian Kühnert in STA 141 provide additional explanation on PCA (in R)
+
 ## Contribution
 Tingwei Liu: Preprocessing data, build correlation chart on dataset, Normalize data, build and explain ANN models.
 Yuchen Liu : Data transformation & formating， build and explain Clustering & PCA models.
