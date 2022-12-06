@@ -89,13 +89,16 @@ model.compile(loss='binary_crossentropy',optimizer='sgd',metrics=['accuracy'])
 model.fit(X_train, y_train, batch_size = 1, epochs = 1000)
 ```
 
-### 2.2 Conclusion
-CPU and GPU shows different performance after training. For the categorical model, the CPU shows 0 wrong prediction on Vendor 1 and 137 wrong prediction on Vendor 0. 
+### 2.2 Result
+CPU and GPU shows different performance after training. For the categorical model, the CPU shows 0 wrong prediction on Vendor 1 and 137 wrong prediction on Vendor 0.  
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/742fbc78b9a3cb70b58c889ed044b442ea67a1b4/pictures/ANNconfusion_matrix_CPU.png)
 
-Note that there model reaches around 0.85 accuracy after 700 epochs and starts overtrained.
+For the sequential model, it reaches around 0.85 accuracy after 700 epochs and starts overtrained. However, with respect to the GPU sequential model, the model didn't provide accurate prediction.
 
-
-
+### 2.3 Discussion and Application
+Based on the four model built above(sequential CPU, sequential GPU, categorical CPU and categorical GPU), the sequential CPU model provides best performance. It shows 0.85 accuracy, which proves our assumption that the perfomance of the chips grows more faster in the recent years for both vendors. This model can also further predict the performance of the chips in future for different venders. 
+The categorical CPU model, however, didn't shows good performance on predict different venders. This might happen because when ignoring the release date veriable, one vender might produce a similar chip after another vender produce it few years later. Further exploration is needed to find out the reason why it is harder to predict the vendors.
+The sequential model for GPU does not shows only 10% accuracy. This might happen because there are more venders involved in the GPU industries, which increase the complexity of the model, 100 epouch is not enough. There also need further exploration to figure out the relationship between different GPU venders to the development of GPUS.
 
 # 3.Clustering
 
