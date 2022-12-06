@@ -164,9 +164,6 @@ From the above Clusters we are able separate the CPU data into 3 subset:
 	2. AMD High perfermance CPU
 	3. Advanced CPU
 By looking into this subset we found that:
-	The accelerating speed of business operations paired with constantly rising customer expectations means that for many organizations, decision making must be progressively devolved away from headquarters.
-	
-	In some cases, these decisions may need to be entirely automated.  Increasingly, decisions are being made based on data generated at the edge.  Putting compute capabilities closer to this relies on the effective combination of three technologies: edge computing, the cloud and artificial intelligence (AI).  While all three already add value individually, which means in the foreseeable future, there will be a sharp rise in the demand of hashrate. Apparently those enterprises are in urgent need of cheap and high performance chips. But the question is: will Moore's Law still hold? What will be the limit of chip performance?
 	
 	The development of chip manufacture technology has greatly decreased the Process Size of the chip, and brought revolutionary improvement on the CPU. But the process size is reaching the limit of Silicon's atomic size is about 0.2 nanometers. Although, the regression model we discussed before comes with the idea that this thing is not likely to happen in the coming 30-40 years, after the process size reaches that limit, there would not be any breakthrough on chip performance. 
 	
@@ -201,9 +198,13 @@ The k-th component can be found by subtracting the first k − 1 principal compo
 	Plot the principal components for better data visualization.  Though we had taken n_components =3, here we are plotting a 2d graph as well as 3d using first two principal components and 3 principal components respectively. For three principal components, we need to plot a 3d graph. The colors show the 2 output classes of the original dataset-benign and malignant. It is clear that principal components show clear separation between two output classes. 
  
 	For three principal components, we need to plot a 3d graph. x[:,0] signifies the first principal component. Similarly, x[:,1] and x[:,2] represent the second and the third principal component.
+	
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca1.png)
+
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca2.png)
+
 ### 3.1.3 Interpretation:
+
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca3.png)
 
 From the graph above, we found that the two variables that are most related to the chip performance are Process Size and Freq, which means most other factors are corresponding with the chip’s process size and chip frequency, the advancement in the chip process size and frequency lead to the development of chip performance. 
@@ -222,6 +223,15 @@ moore's law indecated: "number of transistors doubles every year". However, rece
 
 ## Conclusion
 
+	The accelerating speed of business operations paired with constantly rising customer expectations means that for many organizations, decision making must be progressively devolved away from headquarters.
+	
+	In some cases, these decisions may need to be entirely automated.  Increasingly, decisions are being made based on data generated at the edge.  Putting compute capabilities closer to this relies on the effective combination of three technologies: edge computing, the cloud and artificial intelligence (AI).  While all three already add value individually, which means in the foreseeable future, there will be a sharp rise in the demand of hashrate. Apparently those enterprises are in urgent need of cheap and high performance chips. But the question is: will Moore's Law still hold? What will be the limit of chip performance?
+	
+In our project, we perform Multiple Linear Regression (MLR) and polynomial regression to build up a basic regression model of CPU/GPU development. We have built up a categorical Neural Network (NN) on the CPU to predict the chip’s Vendor. By applying the sequential model, we are able to reach around 0.85 accuracy, and proves our assumption that the performance of the chips grows faster in the recent years for both vendors. Our neural network has determined the developmental trend of the major vendors and we are able to predict how the next generation CPU/GPU will be in the near future.
+
+	We also applied Clustering and PCA on both CPU & GPU. By the model,we believe the future trend of chip development in the next 5-7 years will still be the competition of more advanced processor manufacturing techniques and higher frequency. The limit of chip performance will not be reached until they reach the bottleneck of manufacturing technique and chip frequency.
+
+	
 ## ToDos for more Data Preprocessing and more Model Training:
 1. We decided to apply missing value imputation (MissForest) to impute the missing values in the dataset. This is because the there are too many missing values in the dataset and removing them will result in having a dataset not large enough for training and testing the model.
 2. We decided to apply logistic regression to make prediction for 'Vendor' feature.
@@ -249,6 +259,7 @@ Especially thanks for Dr.Sebastian Kühnert in STA 141 provide additional explan
 
 ## Contribution
 Tingwei Liu: Preprocessing data, build correlation chart on dataset, Normalize data, build and explain ANN models.
+
 Yuchen Liu : Data transformation & formating， build and explain Clustering & PCA models.
 
 
