@@ -225,4 +225,5 @@ moore's law indecated: "number of transistors doubles every year". However, rece
 3. We decided to split the final project into different objectives (e.g. one of the objectives is to predict whether a given trial/sample is a CPU or GPU using the 'Type' label as y for prediction results). This will require us to preprocess the dataset differently (i.e. scale and transform only the feature values X, but separate the predicting values y without using any scaling or transforming method to it). We will look more into the dataset and decide to use other models (logistic regression, neural network, decision tree, SVM).
 4. We are trying to do clusting and PCA on the data to discuss the impact of different variables and use them to reduce the model
 
-
+## Contribution
+Tingwei Liu: Preprocessing data, build correlation chart on dataset, Normalize data, build and explain ANN models.
