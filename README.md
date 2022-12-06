@@ -147,6 +147,7 @@ Wards-increase in the "error sum of squares" (ESS) after fusing two clusters int
 Error Sum of Squares: $$ESS=\sum_{i}^{}\sum_{j}^{}\sum_{k}^{}|x_{ijk}-\bar{x}_{i\cdot k}|^{2}$$
 
 ### 3.1.2 Application
+
 In this case we are interested in the development trend of chip’s  Process Size, Die Size, Transistors and Freq. So we use these four variables as our input, we generate a Hierarchical Dendrogram which is show below:
 
 In the above dendrogram graph, such a vertical line is the blue line. We now draw a horizontal line across this vertical line as shown below. This horizontal line cuts the vertical line at two places, and this means the optimal number of clusters is 4.
@@ -157,6 +158,7 @@ By the cluster method stated as above , we are able to obtain the four clusters 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/Tree.png)
 
 ### 3.1.3 Interpretation:
+
 From the above Clusters we are able separate the CPU data into 3 subset:
 	1. Early developed CPU
 	2. AMD High perfermance CPU
@@ -186,13 +188,14 @@ Principal component analysis (PCA) is a popular technique for analyzing large da
 
 The principal components of a collection of points in a real coordinate space are a sequence of p unit vectors, where the i-th vector is the direction of a line that best fits the data while being orthogonal to the first i-1 vectors. Here, a best-fitting line is defined as one that minimizes the average squared perpendicular distance from the points to the line. These directions constitute an orthonormal basis in which different individual dimensions of the data are linearly uncorrelated. Principal component analysis (PCA) is the process of computing the principal components and using them to perform a change of basis on the data
 
-![alt text]('https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/lagrida_latex_editor.png')
+![68850f0e63c154dd348b9f3ff18e26b](https://user-images.githubusercontent.com/118629117/205845268-8d0e8ebd-b473-4b64-93ff-4dc26ba83f1a.png)
 
 The k-th component can be found by subtracting the first k − 1 principal components from X:
 
-![alt text]('https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/lagrida_latex_editor%20(1).png')
+![689b2449539019c66c0dbfa4e31d4e9](https://user-images.githubusercontent.com/118629117/205845328-0f55a50f-056a-481d-82db-1f46029051d9.png)
 
-###3.2.2 Application
+### 3.2.2 Application
+
 	It is clear that the dataset has 1543  data items with 4 input attributes. There are Three output classes-benign and malignant. Due to 4 input features, it is impossible to visualize this data. while the dimension of actual data is (1543,4). Thus, it is clear that with PCA, the number of dimensions has reduced to 3 from 4.
  
 	Plot the principal components for better data visualization.  Though we had taken n_components =3, here we are plotting a 2d graph as well as 3d using first two principal components and 3 principal components respectively. For three principal components, we need to plot a 3d graph. The colors show the 2 output classes of the original dataset-benign and malignant. It is clear that principal components show clear separation between two output classes. 
