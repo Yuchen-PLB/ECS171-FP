@@ -31,7 +31,8 @@ In this dataset, the Type could be considered as a label/category for other feat
 4. Choose appropriate machine learning models and train the model (linear regression, polynomial regression, neural network, logistic regression, …).
 5. Construct clear write-ups (include goals, results, and discussion) to report our findings. 
 
-## ToDos for more Data Preprocessing and more Model Training:
+## ToDos for more Data Preprocessing and more Model Training (after Milestone 1 and 2):
+NOTE: The is written after Milestone 1 and 2. It serves as a planning for completing the final phase of this project. We achieved most of them in the following sections.
 1. We decided to apply missing value imputation (MissForest) to impute the missing values in the dataset. This is because the there are too many missing values in the dataset and removing them will result in having a dataset not large enough for training and testing the model.
 2. We decided to apply logistic regression to make prediction for 'Vendor' feature.
 3. We decided to split the final project into different objectives (e.g. one of the objectives is to predict whether a given trial/sample is a CPU or GPU using the 'Type' label as y for prediction results). This will require us to preprocess the dataset differently (i.e. scale and transform only the feature values X, but separate the predicting values y without using any scaling or transforming method to it). We will look more into the dataset and decide to use other models (logistic regression, neural network, decision tree, SVM).
@@ -53,9 +54,8 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 
 ## Methods
 
-### Part 3.1 Train First Model (Linear Regression and Polynomial Regression) and Predict Trends between Two Variables
-1. We build and train the Linear Regression model and Polynomial Regression model (using different pairs of variables).
-2. We report R^2 which is the percentage of variation explain/reveal by the regression model. 
+### Part 3.1 Train First Model (Linear Regression and Polynomial Regression) and Predict Trends between Two Selected Variables
+To reach the second Milestone assigned for the final project, we build and train the Linear Regression model and Polynomial Regression model (using different pairs of variables). We then report R^2 which is the percentage of variation explain/reveal by the regression model to reveal how close these prediction/trends are fitting with the selected dataset. 
 
 R^{2} is the coefficient of determination that shows the relation between dependent variable and the other independent variables. The Higher R^{2} is the larger proportion of the data variance could be explain by the model, which means the model has better fittness.
 
@@ -70,6 +70,8 @@ Below are the trends we obtained for answering the questions listed in **Objecti
 ![alt text](pictures/reg_2.png)
 ![alt text](pictures/reg_3.png)
 ![alt text](pictures/reg_4.png)
+
+These graphs are showing: Linear trend, Polynomial degree 2 trend, Polynomial degree 4 trend, and finally, Polynomial degree 2 trend. (From picture in upper left corner to upper right corner, then to picture in lower left corner and lower right corner correspondingly.)
 
 ### Part 3.2 Vendor Prediction with ANN Model
 This model predict the brand of CPU/GPU with expect to its 'Release Date Process Size (nm) TDP (W) Die Size (mm^2)	Transistors (million)	Freq (MHz)'. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X. 
