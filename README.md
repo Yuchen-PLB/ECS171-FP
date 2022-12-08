@@ -59,10 +59,13 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 
 R^{2} is the coefficient of determination that shows the relation between dependent variable and the other independent variables. The Higher R^{2} is the larger proportion of the data variance could be explain by the model, which means the model has better fittness.
 
-R^{2} = \frac{SSR}{SST} = \frac{\sum_{}^{}\left(\hat{y}_{1}-\bar{y} \right)^{2}}{\sum_{}^{}\left(y_{1}-\bar{y} \right)^{2}}
+![alt text](pictures/R^2_equation.png)
 
+#### 3.2.1 Method
+We build Linear Regression and Polynomial Regression models using built-in functions in sklearn library. We plot and observe the trend being obtained after training the Regression Models. Base on this observation, we stop adding the polynomial degrees once there is no observable change for the curve on the graph. This is to avoid overfitting issue as adding more polynomial terms to the model complicates the model. The more complicated the models are, the easier for them to have issue with overfitting.
 
-6. We run a logistic regression on the categorical data, trying to explain which Vendor is tending to produce higher quality CPU/GPU.
+#### 3.2.2 Results
+Below are the trends we obtained for answering the questions listed in **Objectives and Goals**.
 
 
 ### Part 3.2 Vendor Prediction with ANN Model
