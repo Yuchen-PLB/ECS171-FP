@@ -66,7 +66,10 @@ We build Linear Regression and Polynomial Regression models using built-in funct
 
 #### 3.2.2 Results
 Below are the trends we obtained for answering the questions listed in **Objectives and Goals**.
-
+![alt text](pictures/reg_1.png)
+![alt text](pictures/reg_2.png)
+![alt text](pictures/reg_3.png)
+![alt text](pictures/reg_4.png)
 
 ### Part 3.2 Vendor Prediction with ANN Model
 This model predict the brand of CPU/GPU with expect to its 'Release Date Process Size (nm) TDP (W) Die Size (mm^2)	Transistors (million)	Freq (MHz)'. We enumerate the vendor to 0, 1, 2 as our y-label and normalize the properties mentioned above as our X. 
