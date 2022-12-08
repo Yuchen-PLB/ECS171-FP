@@ -54,6 +54,12 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 3. We encode the categorical column/features name 'Vendor' which will be used in other models later. 
 4. We build and train the Linear Regression model and Polynomial Regression model (up to degree 3).
 5. We report R^2 which is the percentage of variation explain/reveal by the regression model. 
+
+R^{2} is the coefficient of determination that shows the relation between dependent variable and the other independent variables. The Higher R^{2} is the larger proportion of the data variance could be explain by the model, which means the model has better fittness.
+
+R^{2} = \frac{SSR}{SST} = \frac{\sum_{}^{}\left(\hat{y}_{1}-\bar{y} \right)^{2}}{\sum_{}^{}\left(y_{1}-\bar{y} \right)^{2}}
+
+
 6. We run a logistic regression on the categorical data, trying to explain which Vendor is tending to produce higher quality CPU/GPU.
 
 
@@ -222,11 +228,20 @@ For three principal components, we need to plot a 3d graph. x[:,0] signifies the
 
 From the graph above, we found that the two variables that are most related to the chip performance are Process Size and Freq, which means most other factors are corresponding with the chip’s process size and chip frequency, the advancement in the chip process size and frequency lead to the development of chip performance. 
 
-By the PCA, we also discover that the factor  Process Size and Freq are not perfectly perpendicular to each other, which means that the development in  Process Size is not always corresponding with the Freq. Actually the angle between them is slightly over 90^{。}That is because as we decrease the Process Size, the processor actually becomes more fragile under high voltage, which restricts the optimized Freq for the chip.
+By the PCA, we also discover that the factor Process Size and Freq are not perfectly perpendicular to each other, which means that the development in  Process Size is not always corresponding with the Freq. Actually the angle between them is slightly over 90^{。}That is because as we decrease the Process Size, the processor actually becomes more fragile under high voltage, which restricts the optimized Freq for the chip.
 
 From this perspective, the future trend of chip development in the next 5-7 years will still be the competition of more advanced processor manufacturing techniques and higher frequency. The limit of chip performance will not be reached until they reach the bottleneck of manufacturing technique and chip frequency.
 	
 ## Result
+
+1.Moore's Law is True, and it still hold in the near future
+
+2.Dannard Scaling is true for now, and we believe it is mostlike still true in the next 5-8 years. 
+
+3.It is surprising that the Process Size and frequency is most related to the chip performance
+
+4.The tread of future CPU/GPU development in the next 5-7 years will still be the competition of more advanced processor manufacturing techniques and higher frequency. But it is hard for the manufacturer to make improvement on both of them. The limit of chip perfermance is the limit of processor size (around 0.125nm) and chip frequency ( Determined by thermal diffusion limit). We are now still too far from that limit and there are still a long way to go to producing better performed chips.
+
 
 ## Discussion
 1. According to the result showed with the linear regression, we can clearly see that the CPU grows linearly for the first 10 years since 2000, this matches what 
@@ -265,10 +280,18 @@ Especially thanks for Dr.Sebastian Kühnert in STA 141 provide additional explan
 
 ## Contribution
 
-Tingwei Liu: Write code for data preprocessing, build correlation chart on dataset, write code for data normalization, build and explain ANN models, introduce the group members to each other.
+Tingwei Liu(Tingwei 1021): Write code for data preprocessing, build correlation chart on dataset, write code for data normalization, build and explain ANN models, participated in Data cleaning, First model build up, Debug and final Markdown file writing.
 
-Yuchen Liu : Write code for data transformation and data formating, build and explain Clustering models, build and explain PCA models, reserve meeting rooms for the group.
+Yuchen Liu(Yuchen-PLB) : Write code for data transformation and data formating, build and explain Clustering models, build and explain PCA models, participated in Data cleaning, First model build up, Debug and final Markdown file writing.
 
 Keer (Nicole) Ni: Organize the Github folders and files, delte repeative codes, separate data preprocessing and model training codes, tidy the Readme section on Github, debug and correct the data transformation for 'Release Date' label, organize the code files to subsections for readability, build and explain Regression (Linear, Polynomial, Logistic) models.
 
-Kehuan Wang: Check the code, query relevant code cases as an aid, supplement the required regional model and transfer the code to Yuchen Liu for sorting, and standardize the overall code structure.
+Kehuan Wang: Check the code, query relevant code cases as an aid and standardize the overall code structure.
+
+Quantization of Contribution(provided via Github):
+
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/1670480460395.png)
+
+Especially thanks prof.E Solares and Dr.S Saltzen at UC Davis College of Computer Science for the instruction during the Fall quarter.
+
+Thanks for Prof.B Liu and UC Davis Deparment of Plant Biology for providing conference room for group meeting.
