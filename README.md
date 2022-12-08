@@ -170,17 +170,17 @@ By the cluster method stated as above , we are able to obtain the four clusters 
 
 From the above Clusters we are able separate the CPU data into 3 subset-
 
-	1. Early developed CPU
+1. Early developed CPU
 	
-	2. AMD High perfermance CPU
+2. AMD High perfermance CPU
 	
-	3. Advanced CPU
+3. Advanced CPU
 	
 By looking into this subset we found that-
 	
-	The development of chip manufacture technology has greatly decreased the Process Size of the chip, and brought revolutionary improvement on the CPU. But the process size is reaching the limit of Silicon's atomic size is about 0.2 nanometers. Although, the regression model we discussed before comes with the idea that this thing is not likely to happen in the coming 30-40 years, after the process size reaches that limit, there would not be any breakthrough on chip performance. 
+The development of chip manufacture technology has greatly decreased the Process Size of the chip, and brought revolutionary improvement on the CPU. But the process size is reaching the limit of Silicon's atomic size is about 0.2 nanometers. Although, the regression model we discussed before comes with the idea that this thing is not likely to happen in the coming 30-40 years, after the process size reaches that limit, there would not be any breakthrough on chip performance. 
 	
-	So by this model, we can predict that in the next 5~8 years, the Moore's will Law still holds, but there will be gradually more and more differences between AMD and Intel chip manufacturing techniques. We can also foresee when Samsung comes up with their 3-nm manufacturing technique there will be a big improvement of CPU and GPU performance.
+So by this model, we can predict that in the next 5~8 years, the Moore's will Law still holds, but there will be gradually more and more differences between AMD and Intel chip manufacturing techniques. We can also foresee when Samsung comes up with their 3-nm manufacturing technique there will be a big improvement of CPU and GPU performance.
 
 
 
