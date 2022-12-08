@@ -298,7 +298,7 @@ Kehuan Wang: Check the code, query relevant code cases as an aid and standardize
 
 Quantization of Contribution(provided via Github):
 
-![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/1670480460395.png)
+![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/contribution.png)
 
 Especially thanks prof.E Solares and Dr.S Saltzen at UC Davis College of Computer Science for the instruction during the Fall quarter.
 
