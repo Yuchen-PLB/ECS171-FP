@@ -113,7 +113,7 @@ The sequential model for GPU does not shows only 10% accuracy. This might happen
 
 ### Part 3.3 Clustering
 
-#### 3.3.1 Method 1: Agglomerative Hierarchical Clustering
+### 3.3.1 Method 1: Agglomerative Hierarchical Clustering
 Hierarchical clustering is an unsupervised clustering algorithm used to create clusters with a tree-like hierarchy. In this clustering method, there is no need to give the number of clusters to the algorithm.  In contrast to this, the other algorithm like K-Mean produces flat clusters where there is no hierarchy and we also have to choose the number of clusters, to begin with.
 
 Here, we first draw a Hierarchical Dendrogram to have a general overview of the CPU data to decide the number of clusters we need for the K-Mean clustering algorithm.
@@ -122,7 +122,7 @@ The hierarchical clustering algorithm can be of two types –
 Divisive Clustering – It takes a top-down approach where the entire data observation is considered to be one big cluster at the start. Then subsequently it is split into two clusters, then three clusters, and so on until each data ends up as a separate cluster.
 Agglomerative Clustering – It takes a bottom-up approach where it assumes individual data observation to be one cluster at the start. Then it starts merging the data points into clusters till it creates one final cluster at the end with all data points.
 
-#### 3.3.1.1 Method
+### 3.1.1 Method
 Parameters of Agglomerative Clustering
 The agglomeration hierarchical clustering can have multiple variations depending on affinity and linkage.
 Affinity
@@ -155,7 +155,7 @@ Average-compromise between the sensitivity of complete-link clustering to outlie
 Wards-increase in the "error sum of squares" (ESS) after fusing two clusters into a single cluster
 Error Sum of Squares: $$ESS=\sum_{i}^{}\sum_{j}^{}\sum_{k}^{}|x_{ijk}-\bar{x}_{i\cdot k}|^{2}$$
 
-#### 3.3.1.2 Application
+### 3.1.2 Application
 
 In this case we are interested in the development trend of chip’s  Process Size, Die Size, Transistors and Freq. So we use these four variables as our input, we generate a Hierarchical Dendrogram which is show below:
 
@@ -166,13 +166,17 @@ By the cluster method stated as above , we are able to obtain the four clusters 
 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/Tree.png)
 
-#### 3.3.1.3 Interpretation
+#### 3.1.3 Interpretation
 
-From the above Clusters we are able separate the CPU data into 3 subset:
+From the above Clusters we are able separate the CPU data into 3 subset-
+
 	1. Early developed CPU
+	
 	2. AMD High perfermance CPU
+	
 	3. Advanced CPU
-By looking into this subset we found that:
+	
+By looking into this subset we found that-
 	
 	The development of chip manufacture technology has greatly decreased the Process Size of the chip, and brought revolutionary improvement on the CPU. But the process size is reaching the limit of Silicon's atomic size is about 0.2 nanometers. Although, the regression model we discussed before comes with the idea that this thing is not likely to happen in the coming 30-40 years, after the process size reaches that limit, there would not be any breakthrough on chip performance. 
 	
@@ -180,7 +184,7 @@ By looking into this subset we found that:
 
 
 
-#### 3.3.2 Method 2: Principal component analysis (PCA)
+### 3.3.4 Method 2: Principal component analysis (PCA)
 
 PCA is an unsupervised pre-processing task that is carried out before applying any ML algorithm. PCA is based on “orthogonal linear transformation” which is a mathematical technique to project the attributes of a data set onto a new coordinate system. The attribute which describes the most variance is called the first principal component and is placed at the first coordinate.
 
@@ -188,7 +192,7 @@ Similarly, the attribute which stands second in describing variance is called a 
 
 Principal component analysis, or PCA, thus converts data from high dimensional space to low dimensional space by selecting the most important attributes that capture maximum information about the dataset.
 
-#### 3.3.2.1 Method
+### 3.3.5 Method
 
 Principal component analysis (PCA) is a popular technique for analyzing large datasets containing a high number of dimensions/features per observation, increasing the interpretability of data while preserving the maximum amount of information, and enabling the visualization of multidimensional data. Formally, PCA is a statistical technique for reducing the dimensionality of a dataset. This is accomplished by linearly transforming the data into a new coordinate system where (most of) the variation in the data can be described with fewer dimensions than the initial data.
 
@@ -196,11 +200,11 @@ The principal components of a collection of points in a real coordinate space ar
 
 ![68850f0e63c154dd348b9f3ff18e26b](https://user-images.githubusercontent.com/118629117/205845268-8d0e8ebd-b473-4b64-93ff-4dc26ba83f1a.png)
 
-The k-th component can be found by subtracting the first k − 1 principal components from X:
+The k-th component can be found by subtracting the first k − 1 principal components from X-
 
 ![689b2449539019c66c0dbfa4e31d4e9](https://user-images.githubusercontent.com/118629117/205845328-0f55a50f-056a-481d-82db-1f46029051d9.png)
 
-#### 3.3.2.2 Application
+### 3.3.6 Application
 
 	It is clear that the dataset has 1543  data items with 4 input attributes. There are Three output classes-benign and malignant. Due to 4 input features, it is impossible to visualize this data. while the dimension of actual data is (1543,4). Thus, it is clear that with PCA, the number of dimensions has reduced to 3 from 4.
  
@@ -212,7 +216,7 @@ The k-th component can be found by subtracting the first k − 1 principal compo
 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca2.png)
 
-#### 3.3.2.3 Interpretation:
+### 3.3.7 Interpretation:
 
 ![alt text](https://github.com/Yuchen-PLB/ECS171-FP/blob/main/pictures/pca3.png)
 
@@ -232,13 +236,13 @@ moore's law indecated: "number of transistors doubles every year". However, rece
 
 ## Conclusion
 
-	The accelerating speed of business operations paired with constantly rising customer expectations means that for many organizations, decision making must be progressively devolved away from headquarters.
+The accelerating speed of business operations paired with constantly rising customer expectations means that for many organizations, decision making must be progressively devolved away from headquarters.
 	
-	In some cases, these decisions may need to be entirely automated.  Increasingly, decisions are being made based on data generated at the edge.  Putting compute capabilities closer to this relies on the effective combination of three technologies: edge computing, the cloud and artificial intelligence (AI).  While all three already add value individually, which means in the foreseeable future, there will be a sharp rise in the demand of hashrate. Apparently those enterprises are in urgent need of cheap and high performance chips. But the question is: will Moore's Law still hold? What will be the limit of chip performance?
+In some cases, these decisions may need to be entirely automated. Increasingly, decisions are being made based on data generated at the edge.  Putting compute capabilities closer to this relies on the effective combination of three technologies: edge computing, the cloud and artificial intelligence (AI).  While all three already add value individually, which means in the foreseeable future, there will be a sharp rise in the demand of hashrate. Apparently those enterprises are in urgent need of cheap and high performance chips. But the question is: will Moore's Law still hold? What will be the limit of chip performance?
 	
 In our project, we perform Multiple Linear Regression (MLR) and polynomial regression to build up a basic regression model of CPU/GPU development. We have built up a categorical Neural Network (NN) on the CPU to predict the chip’s Vendor. By applying the sequential model, we are able to reach around 0.85 accuracy, and proves our assumption that the performance of the chips grows faster in the recent years for both vendors. Our neural network has determined the developmental trend of the major vendors and we are able to predict how the next generation CPU/GPU will be in the near future.
 
-	We also applied Clustering and PCA on both CPU & GPU. By the model,we believe the future trend of chip development in the next 5-7 years will still be the competition of more advanced processor manufacturing techniques and higher frequency. The limit of chip performance will not be reached until they reach the bottleneck of manufacturing technique and chip frequency.
+We also applied Clustering and PCA on both CPU & GPU. By the model,we believe the future trend of chip development in the next 5-7 years will still be the competition of more advanced processor manufacturing techniques and higher frequency. The limit of chip performance will not be reached until they reach the bottleneck of manufacturing technique and chip frequency.
 
 ## Reference:
 [1]kmeans clustering algorithm - Python. (n.d.). https://pythonprogramminglanguage.com/kmeans-clustering-algorithm/
