@@ -271,4 +271,4 @@ Yuchen Liu : Write code for data transformation and data formating, build and ex
 
 Keer (Nicole) Ni: Organize the Github folders and files, delte repeative codes, separate data preprocessing and model training codes, tidy the Readme section on Github, debug and correct the data transformation for 'Release Date' label, organize the code files to subsections for readability, build and explain Regression (Linear, Polynomial, Logistic) models.
 
-
+Kehuan Wang: Check the code, query relevant code cases as an aid, supplement the required regional model and transfer the code to Yuchen Liu for sorting, and standardize the overall code structure.
