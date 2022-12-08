@@ -99,10 +99,11 @@ model.fit(X_train, y_train, batch_size = 1, epochs = 1000)
 CPU and GPU shows different performance after training. For the categorical model, the CPU shows 0 wrong prediction on Vendor 1 and 137 wrong prediction on Vendor 0.  
 ![alt text](pictures/ANNconfusion_matrix_CPU.png)
 
-For the sequential model, it reaches around 0.85 accuracy after 700 epochs and starts overtrained.
+For the sequential model, it reaches around 0.85 accuracy after 700 epochs.
 
 The model below shows the model accuracy in respect to the epochs. 
 ![alt text](pictures/ANN-CPUmodel.png)
+
  However, with respect to the GPU sequential model, the model didn't provide accurate prediction.
 
 #### 3.2.3 Discussion and Application
