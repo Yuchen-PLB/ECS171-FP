@@ -46,14 +46,16 @@ NOTE: We are using Google Colab as the coding environment. To read the dataset c
 3. We splitted the dataset into two main categories: CPU and GPU. Since the GPU category/class has more feature than the CPU feature. 
 4. We look at seaborn pairplots and correlation coefficients to see the data distribution.
 
-## Methods
-
-### Part 3.1 Data Preprocessing and Train First Model (Linear Regression and Polynomial Regression)
+### Part 2. Data Preprocessing
 1. We first clean the dataframe by deleting unused column 'Unnamed: 0' (only shows indecies of the dataframe).
 2. We normalize the dataset using Minmax Normalization.
 3. We encode the categorical column/features name 'Vendor' which will be used in other models later. 
-4. We build and train the Linear Regression model and Polynomial Regression model (up to degree 3).
-5. We report R^2 which is the percentage of variation explain/reveal by the regression model. 
+
+## Methods
+
+### Part 3.1 Train First Model (Linear Regression and Polynomial Regression) and Predict Trends between Two Variables
+1. We build and train the Linear Regression model and Polynomial Regression model (using different pairs of variables).
+2. We report R^2 which is the percentage of variation explain/reveal by the regression model. 
 
 R^{2} is the coefficient of determination that shows the relation between dependent variable and the other independent variables. The Higher R^{2} is the larger proportion of the data variance could be explain by the model, which means the model has better fittness.
 
